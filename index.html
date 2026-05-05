@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Reels Studio by k_p_creativity | Reel Maker & Social Media Creator Portfolio</title>
+  <meta name="description" content="Reels Studio by k_p_creativity creates cinematic wedding reels, new car delivery reels, birthday reels, political reels, product videos, interior videos, festival reels and Instagram-ready social media content." />
+  <meta name="keywords" content="Reels Studio, k_p_creativity, reel maker, cinematic reels, wedding reels, new car delivery reels, birthday reels, political reels, product video, interior video, festival reels, Instagram reels, social media creator, Mumbai, Navi Mumbai, Maharashtra" />
+  <meta name="author" content="Reels Studio by k_p_creativity" />
+
+  <!-- Social Preview / Open Graph -->
+  <meta property="og:title" content="Reels Studio by k_p_creativity" />
+  <meta property="og:description" content="Cinematic reels, event shoots, product videos and Instagram-ready edits." />
+  <meta property="og:image" content="assets/logo.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-netlify-link.netlify.app" />
+
+  <!-- Twitter Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reels Studio by k_p_creativity" />
+  <meta name="twitter:description" content="Premium reel making, shooting and editing services." />
+  <meta name="twitter:image" content="assets/logo.jpg" />
+
+  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #000000;
+      --dark: #06050b;
+      --dark-2: #0e0b16;
+      --violet: #7D39EB;
+      --lime: #C6FF33;
+      --white: #FFFFFF;
+      --muted: #bdb7cb;
+      --glass: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.13);
+      --shadow: 0 24px 80px rgba(125, 57, 235, 0.25);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(125, 57, 235, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 12%, rgba(198, 255, 51, 0.12), transparent 28%),
+        linear-gradient(180deg, #000000 0%, #07040f 48%, #000000 100%);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 80%);
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,255,255,0.025), transparent 20%, transparent 80%, rgba(255,255,255,0.025));
+      mix-blend-mode: overlay;
+      z-index: 9999;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,.7) 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 24%, rgba(255,255,255,.6) 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 78%, rgba(198,255,51,.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 70%, rgba(125,57,235,.9) 0 1px, transparent 2px);
+      background-size: 120px 120px, 180px 180px, 230px 230px, 280px 280px;
+      animation: drift 18s linear infinite;
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-80px, 60px, 0); }
+    }
+
+    /* Loader */
+    .loader {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #000;
+      z-index: 99999;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-card {
+      text-align: center;
+      width: min(360px, 90vw);
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .loader-logo {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin: 0 auto 18px;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .loader-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+
+    .loader-line {
+      height: 4px;
+      width: 100%;
+      margin-top: 18px;
+      border-radius: 99px;
+      background: rgba(255,255,255,.12);
+      overflow: hidden;
+    }
+
+    .loader-line span {
+      display: block;
+      width: 45%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--violet), var(--lime));
+      animation: loadMove 1s ease-in-out infinite;
+    }
+
+    @keyframes loadMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(240%); }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(0,0,0,.65);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+      letter-spacing: .01em;
+    }
+
+    .brand-text span {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: rgba(255,255,255,.78);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: max-content;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: #050505;
+      background: var(--lime);
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(198,255,51,.18);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--glass);
+      color: var(--white);
+      font-size: 1.4rem;
+    }
+
+    /* General */
+    section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-head {
+      margin-bottom: 38px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .eyebrow {
+      color: var(--lime);
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 7.2rem);
+      line-height: .9;
+      max-width: 970px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #cfc3ff 40%, var(--lime));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .text-muted {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      border: 1px solid transparent;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      background: var(--lime);
+      color: #050505;
+      box-shadow: 0 18px 42px rgba(198,255,51,.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 60px rgba(198,255,51,.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.06);
+      color: var(--white);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(198,255,51,.45);
+      color: var(--lime);
+    }
+
+    .book-cta {
+      margin-top: 34px;
+      padding: 26px;
+      border: 1px solid rgba(198,255,51,.25);
+      background:
+        linear-gradient(135deg, rgba(125,57,235,.18), rgba(198,255,51,.07)),
+        rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .book-cta strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 84px 0 60px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.82);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--lime);
+      box-shadow: 0 0 0 0 rgba(198,255,51,.65);
+      animation: pulse 1.7s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 14px rgba(198,255,51,0); }
+      100% { box-shadow: 0 0 0 0 rgba(198,255,51,0); }
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.15);
+      padding: 18px;
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow);
+      transform-style: preserve-3d;
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-14px) rotate(1deg); }
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: conic-gradient(from 120deg, transparent, var(--violet), var(--lime), transparent 30%);
+      opacity: .35;
+      z-index: -1;
+      filter: blur(12px);
+    }
+
+    .logo-frame {
+      overflow: hidden;
+      border-radius: 28px;
+      background: #000;
+      aspect-ratio: 4 / 5;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .93;
+      transform: scale(1.02);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .stat strong {
+      font-size: 1.4rem;
+      display: block;
+      color: var(--lime);
+    }
+
+    .stat span {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(28px);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .orb-one {
+      width: 180px;
+      height: 180px;
+      background: var(--violet);
+      top: 18%;
+      right: 12%;
+      animation: orbMove 8s ease-in-out infinite;
+    }
+
+    .orb-two {
+      width: 120px;
+      height: 120px;
+      background: var(--lime);
+      bottom: 18%;
+      left: 5%;
+      animation: orbMove 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes orbMove {
+      50% { transform: translate(28px, -22px) scale(1.12); }
+    }
+
+    /* Moving banner */
+    .marquee {
+      overflow: hidden;
+      border-block: 1px solid rgba(255,255,255,.1);
+      background: linear-gradient(90deg, rgba(125,57,235,.2), rgba(198,255,51,.08));
+      padding: 18px 0;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 28px;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee span {
+      font-weight: 1000;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.9);
+    }
+
+    .marquee b {
+      color: var(--lime);
+      margin-left: 28px;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 180px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        rgba(255,255,255,.03);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(198,255,51,.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -70px;
+      top: -70px;
+      background: radial-gradient(circle, rgba(125,57,235,.45), transparent 68%);
+      transition: .25s ease;
+    }
+
+    .card:hover::after {
+      transform: scale(1.4);
+      background: radial-gradient(circle, rgba(198,255,51,.34), transparent 68%);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      background: rgba(125,57,235,.20);
+      border: 1px solid rgba(125,57,235,.45);
+      color: var(--lime);
+      font-size: 1.45rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 10px;
+      font-size: .95rem;
+    }
+
+    /* Categories */
+    .category-card {
+      cursor: pointer;
+      min-height: 150px;
+    }
+
+    .category-card.active {
+      border-color: var(--lime);
+      background: linear-gradient(135deg, rgba(198,255,51,.12), rgba(125,57,235,.12));
+    }
+
+    .category-view {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(198,255,51,.22);
+      background: rgba(255,255,255,.045);
+    }
+
+    .category-view-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .work-card {
+      min-height: 230px;
+      border: 1px dashed rgba(255,255,255,.22);
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(125,57,235,.12), rgba(198,255,51,.05)),
+        rgba(255,255,255,.035);
+      overflow: hidden;
+    }
+
+    .work-thumb {
+      height: 140px;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.7);
+      font-weight: 900;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(198,255,51,.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(125,57,235,.35), transparent 35%),
+        #07070a;
+    }
+
+    .work-info {
+      padding: 16px;
+    }
+
+    .work-info span {
+      display: inline-flex;
+      margin-top: 8px;
+      color: var(--lime);
+      font-weight: 800;
+      font-size: .82rem;
+    }
+
+    /* Packages */
+    .package {
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .package-label {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(198,255,51,.12);
+      border: 1px solid rgba(198,255,51,.25);
+      color: var(--lime);
+      font-weight: 900;
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .package ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+      color: var(--muted);
+    }
+
+    .package li::before {
+      content: "✓";
+      color: var(--lime);
+      font-weight: 900;
+      margin-right: 10px;
+    }
+
+    .hidden-price {
+      margin-top: 22px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(125,57,235,.16);
+      border: 1px solid rgba(125,57,235,.35);
+      color: rgba(255,255,255,.85);
+      font-weight: 800;
+    }
+
+    /* Process */
+    .process {
+      counter-reset: process;
+    }
+
+    .process-card {
+      min-height: 210px;
+    }
+
+    .process-card::before {
+      counter-increment: process;
+      content: "0" counter(process);
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba(255,255,255,.07);
+      font-weight: 1000;
+    }
+
+    /* Proof */
+    .proof-card {
+      min-height: 260px;
+    }
+
+    .proof-box {
+      min-height: 140px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255,255,255,.20);
+      background: rgba(0,0,0,.25);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: rgba(255,255,255,.62);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .testimonial {
+      min-height: auto;
+    }
+
+    .stars {
+      color: var(--lime);
+      letter-spacing: .08em;
+      margin-bottom: 14px;
+    }
+
+    /* About */
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-media {
+      padding: 18px;
+      border-radius: 34px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+    }
+
+    .about-media img {
+      border-radius: 26px;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .about-list div {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.045);
+      color: rgba(255,255,255,.82);
+      font-weight: 700;
+    }
+
+    .about-list span {
+      color: var(--lime);
+      margin-right: 8px;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 20px;
+      font-weight: 900;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--lime);
+      font-size: 1.4rem;
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    details p {
+      padding: 0 20px 20px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      min-height: auto;
+    }
+
+    .contact-line {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-line a, .contact-line span {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.09);
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .contact-line a:hover {
+      color: var(--lime);
+      border-color: rgba(198,255,51,.28);
+    }
+
+    footer {
+      padding: 34px 0 110px;
+      border-top: 1px solid rgba(255,255,255,.09);
+      color: rgba(255,255,255,.64);
+      text-align: center;
+    }
+
+    /* Floating buttons */
+    .floating-buttons {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2000;
+      display: grid;
+      gap: 12px;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #050505;
+      font-size: 1.35rem;
+      font-weight: 1000;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      transition: .2s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .whatsapp {
+      background: var(--lime);
+    }
+
+    .instagram {
+      background: linear-gradient(135deg, #ffdb4d, #ee2a7b, #7D39EB);
+      color: #fff;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .grid-3,
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: 86px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(0,0,0,.92);
+        border: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .book-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      section {
+        padding: 66px 0;
+      }
+
+      .nav-inner {
+        height: 70px;
+      }
+
+      .brand-text strong {
+        font-size: .92rem;
+      }
+
+      .brand-text span {
+        font-size: .72rem;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .grid-4,
+      .grid-3,
+      .work-grid,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .category-view-top {
+        display: block;
+      }
+
+      .category-view-top .btn {
+        margin-top: 16px;
+      }
+
+      .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .float-btn {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-card">
+      <img src="assets/logo.jpg" alt="Reels Studio Logo" class="loader-logo">
+      <div class="loader-title">REELS STUDIO</div>
+      <div class="loader-line"><span></span></div>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <img src="assets/logo.jpg" alt="Reels Studio by k_p_creativity logo">
+        <span class="brand-text">
+          <strong>Reels Studio</strong>
+          <span>by k_p_creativity</span>
+        </span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#categories">Work Categories</a>
+        <a href="#packages">Packages</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#proof">Client Proof</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener">Book Shoot</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <span class="orb orb-one"></span>
+      <span class="orb orb-two"></span>
+
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="hero-badge"><span class="pulse"></span> Reel Making • Shoot • Edit • Social Media Content</div>
+          <h1>Premium <span class="gradient-text">Reels & Cinematic Videos</span> for Events, Brands & Creators.</h1>
+          <p>
+            Reels Studio by k_p_creativity creates Instagram-ready reels with a cinematic visual style,
+            clean edits, trending music, captions, color grading and professional delivery for every category.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener">Book Shoot Now</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/k_p_creativity_24?igsh=N2dnejNweHc0ZnNs" target="_blank" rel="noopener">View Instagram</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="logo-frame">
+            <img src="assets/logo.jpg" alt="Reels Studio Portfolio Preview">
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>4K+</strong><span>Ready quality</span></div>
+            <div class="stat"><strong>Fast</strong><span>Reel delivery</span></div>
+            <div class="stat"><strong>All</strong><span>Shoot types</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Moving service banner">
+      <div class="marquee-track">
+        <span>Wedding Cinematic Reels <b>•</b></span>
+        <span>New Car Delivery Reels <b>•</b></span>
+        <span>Political Reels <b>•</b></span>
+        <span>Birthday Reels <b>•</b></span>
+        <span>Product Videos <b>•</b></span>
+        <span>Festival/Event Reels <b>•</b></span>
+        <span>Interior Videos <b>•</b></span>
+        <span>Cinematic Videos <b>•</b></span>
+        <span>Wedding Cinematic Reels <b>•</b></span>
+        <span>New Car Delivery Reels <b>•</b></span>
+        <span>Political Reels <b>•</b></span>
+        <span>Birthday Reels <b>•</b></span>
+        <span>Product Videos <b>•</b></span>
+        <span>Festival/Event Reels <b>•</b></span>
+        <span>Interior Videos <b>•</b></span>
+        <span>Cinematic Videos <b>•</b></span>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Services</div>
+            <h2>Everything your reel needs.</h2>
+          </div>
+          <p class="text-muted">Shoot, edit, captions, music, color, delivery — built for Instagram attention.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card reveal">
+            <div class="icon">🎬</div>
+            <h3>Wedding Cinematic Reels</h3>
+            <p>Halad, wedding highlights, chaul ceremony and emotional cinematic edits.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">🚗</div>
+            <h3>New Car Delivery Reels</h3>
+            <p>Premium car delivery moments with cinematic shots and powerful music.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">📢</div>
+            <h3>Political Reels</h3>
+            <p>Strong public event edits, leader introductions and campaign-ready reels.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">🎂</div>
+            <h3>Birthday Reels</h3>
+            <p>Birthday events, family memories and celebration reels with clean storytelling.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">💍</div>
+            <h3>Product / Jewellery Videos</h3>
+            <p>Product-focused visuals for jewellery, shops, brands and promotions.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">🏠</div>
+            <h3>Home Interior Videos</h3>
+            <p>Interior reveal videos, walkthroughs and elegant home presentation reels.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">🎉</div>
+            <h3>Festival / Event Reels</h3>
+            <p>All festival reels, local events, religious programs and special occasions.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">⚡</div>
+            <h3>All Types of Shoot Available</h3>
+            <p>Custom shoot and edit services based on your event, brand or creator requirement.</p>
+          </article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Have a shoot coming soon?</strong>
+            <p class="text-muted">Share your date, location and shoot type. We will guide you with the right package.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener">Book Shoot</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Work Categories</div>
+            <h2>Click a category to view work.</h2>
+          </div>
+          <p class="text-muted">Currently placeholders are added. Replace these with your real videos/thumbnails later.</p>
+        </div>
+
+        <div class="grid-4" id="categoryGrid">
+          <article class="card category-card active reveal" data-category="Wedding Reels"><div class="icon">💒</div><h3>Wedding Reels</h3><p>Halad, wedding highlight, chaul ceremony.</p></article>
+          <article class="card category-card reveal" data-category="New Car Delivery Reels"><div class="icon">🚘</div><h3>New Car Delivery Reels</h3><p>Premium vehicle delivery moments.</p></article>
+          <article class="card category-card reveal" data-category="Political Reels"><div class="icon">🎙️</div><h3>Political Reels</h3><p>Campaign, rally and public event content.</p></article>
+          <article class="card category-card reveal" data-category="Birthday Reels"><div class="icon">🎂</div><h3>Birthday Reels</h3><p>Birthday party and family moments.</p></article>
+          <article class="card category-card reveal" data-category="Festival/Event Reels"><div class="icon">🪔</div><h3>Festival/Event Reels</h3><p>Festivals, local events and programs.</p></article>
+          <article class="card category-card reveal" data-category="Jewellery Videos"><div class="icon">💎</div><h3>Jewellery Videos</h3><p>Product showcase and brand videos.</p></article>
+          <article class="card category-card reveal" data-category="Interior Videos"><div class="icon">🏡</div><h3>Interior Videos</h3><p>Home, shop and interior presentation.</p></article>
+          <article class="card category-card reveal" data-category="Cinematic Videos"><div class="icon">🎥</div><h3>Cinematic Videos</h3><p>Premium cinematic edits and storytelling.</p></article>
+        </div>
+
+        <div class="category-view reveal" id="categoryView">
+          <div class="category-view-top">
+            <div>
+              <div class="eyebrow">Selected Category</div>
+              <h3 id="categoryTitle">Wedding Reels</h3>
+              <p class="text-muted" id="categoryDesc">Add your wedding reel thumbnails/videos in this section.</p>
+            </div>
+            <a class="btn btn-secondary" href="#portfolio">See Portfolio Placeholders</a>
+          </div>
+
+          <div class="work-grid" id="workGrid"></div>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Want a category-specific reel?</strong>
+            <p class="text-muted">Message us the category name and we will suggest the best shoot/edit flow.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20a%20category-specific%20reel" target="_blank" rel="noopener">Book Shoot</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Packages</div>
+            <h2>Package information only.</h2>
+          </div>
+          <p class="text-muted">Pricing is intentionally hidden. Final package depends on date, location, shoot type and editing requirements.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card package reveal">
+            <div>
+              <span class="package-label">Basic Edit</span>
+              <h3>For ready footage</h3>
+              <ul>
+                <li>Client provides footage</li>
+                <li>Music sync edit</li>
+                <li>Basic captions/text</li>
+                <li>Instagram-ready export</li>
+              </ul>
+            </div>
+            <div class="hidden-price">Price: Contact on WhatsApp</div>
+          </article>
+
+          <article class="card package reveal">
+            <div>
+              <span class="package-label">Shoot + Edit</span>
+              <h3>For events & creators</h3>
+              <ul>
+                <li>Shoot planning support</li>
+                <li>Footage capture</li>
+                <li>Cinematic editing</li>
+                <li>Color grading and captions</li>
+              </ul>
+            </div>
+            <div class="hidden-price">Price: Contact on WhatsApp</div>
+          </article>
+
+          <article class="card package reveal">
+            <div>
+              <span class="package-label">Premium Reel</span>
+              <h3>For brands & special events</h3>
+              <ul>
+                <li>Concept-based reel</li>
+                <li>Premium transitions</li>
+                <li>Before/after edit style</li>
+                <li>Multiple content output options</li>
+              </ul>
+            </div>
+            <div class="hidden-price">Price: Contact on WhatsApp</div>
+          </article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Need the right package?</strong>
+            <p class="text-muted">Don’t guess. Send the event details and we’ll suggest the correct option.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20please%20suggest%20a%20package%20for%20my%20shoot" target="_blank" rel="noopener">Ask Package</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Our Process</div>
+            <h2>Simple workflow. Clean delivery.</h2>
+          </div>
+        </div>
+
+        <div class="grid-3 process">
+          <article class="card process-card reveal"><div class="icon">📝</div><h3>Share Your Requirement</h3><p>Tell us the event type, reel style, reference and final use.</p></article>
+          <article class="card process-card reveal"><div class="icon">📍</div><h3>Confirm Date, Location & Shoot Type</h3><p>We finalize shoot timing, place, team requirement and content plan.</p></article>
+          <article class="card process-card reveal"><div class="icon">📸</div><h3>Shoot / Collect Footage</h3><p>We shoot the content or collect footage from you for editing.</p></article>
+          <article class="card process-card reveal"><div class="icon">🎧</div><h3>Edit With Music, Captions & Color</h3><p>We sync music, add captions, transitions and cinematic color treatment.</p></article>
+          <article class="card process-card reveal"><div class="icon">🚀</div><h3>Final Reel Delivery</h3><p>You get Instagram-ready output for posting and sharing.</p></article>
+          <article class="card process-card reveal"><div class="icon">💬</div><h3>Feedback & Final Touch</h3><p>Small refinements are handled clearly before final delivery.</p></article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Ready to start the process?</strong>
+            <p class="text-muted">Send your requirement and we’ll take it step-by-step.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20start%20a%20new%20project" target="_blank" rel="noopener">Start Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Portfolio</div>
+            <h2>Work placeholders.</h2>
+          </div>
+          <p class="text-muted">Upload real thumbnails/videos later. For now this keeps the site clean and professional.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>Wedding Highlight Reel</h3><span>Wedding Category</span></div></article>
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>Halad Ceremony Reel</h3><span>Wedding Category</span></div></article>
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>New Car Delivery Reel</h3><span>Car Delivery Category</span></div></article>
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>Birthday Reel</h3><span>Birthday Category</span></div></article>
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>Festival Event Reel</h3><span>Event Category</span></div></article>
+          <article class="work-card reveal"><div class="work-thumb">Upcoming Work</div><div class="work-info"><h3>Product Video</h3><span>Brand Category</span></div></article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Your project can be next here.</strong>
+            <p class="text-muted">Book a shoot and we’ll create content ready for this portfolio and Instagram.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20my%20project%20featured%20in%20your%20portfolio" target="_blank" rel="noopener">Book Shoot</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container split">
+        <div class="about-media reveal">
+          <img src="assets/logo.jpg" alt="About Reels Studio by k_p_creativity">
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">About Us</div>
+          <h2>We create reels that look premium, fast and post-ready.</h2>
+          <p class="text-muted" style="margin-top: 20px;">
+            Reels Studio by k_p_creativity is a social media creators and reel maker brand focused on cinematic event reels,
+            brand videos, product showcases and Instagram-ready content. Our goal is simple: make every moment look sharper,
+            more emotional and more scroll-stopping.
+          </p>
+
+          <div class="about-list">
+            <div><span>01</span> Cinematic reel editing for events and brands</div>
+            <div><span>02</span> Shoot + edit available based on requirement</div>
+            <div><span>03</span> Custom packages without fixed public pricing</div>
+            <div><span>04</span> Local client/event work experience</div>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20know%20more%20about%20your%20services" target="_blank" rel="noopener">Book Shoot</a>
+            <a class="btn btn-secondary" href="#contact">Contact Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Why Choose Us</div>
+            <h2>Stronger content. Better presentation.</h2>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal"><div class="icon">🎞️</div><h3>Cinematic Visual Style</h3><p>Premium framing, rhythm, music sync and color tone for a high-value feel.</p></article>
+          <article class="card reveal"><div class="icon">⚡</div><h3>Fast Reel Delivery</h3><p>Quick turnaround depending on shoot size and editing complexity.</p></article>
+          <article class="card reveal"><div class="icon">📹</div><h3>Shoot + Edit Available</h3><p>Complete content service — capture footage and convert it into reels.</p></article>
+          <article class="card reveal"><div class="icon">📱</div><h3>Instagram-Ready Output</h3><p>Vertical format, clean export, captions and social-friendly delivery.</p></article>
+          <article class="card reveal"><div class="icon">🧩</div><h3>Custom Packages</h3><p>Packages are planned based on real needs, not random fixed pricing.</p></article>
+          <article class="card reveal"><div class="icon">🏆</div><h3>Event & Brand Content</h3><p>Suitable for weddings, birthdays, car deliveries, interiors, brands and local events.</p></article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Don’t settle for basic edits.</strong>
+            <p class="text-muted">Your event deserves better than random transitions and weak music sync.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20premium%20reel%20editing" target="_blank" rel="noopener">Book Premium Edit</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Client Proof</div>
+            <h2>Trust-building proof section.</h2>
+          </div>
+          <p class="text-muted">Replace placeholders with real screenshots when available.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card proof-card reveal">
+            <div class="proof-box">Add Screenshot<br>Client Feedback</div>
+            <h3>Client Feedback</h3>
+            <p>Show WhatsApp/Instagram feedback screenshots after hiding private details.</p>
+          </article>
+          <article class="card proof-card reveal">
+            <div class="proof-box">Add Before / After<br>Edit Sample</div>
+            <h3>Before/After Edit</h3>
+            <p>Show raw footage vs final reel style to prove your editing quality.</p>
+          </article>
+          <article class="card proof-card reveal">
+            <div class="proof-box">Add Reel Performance<br>Screenshot</div>
+            <h3>Instagram Performance</h3>
+            <p>Show views, reach, likes or engagement screenshots from posted reels.</p>
+          </article>
+          <article class="card proof-card reveal">
+            <div class="proof-box">Local Client / Event<br>Proof</div>
+            <h3>Local Events</h3>
+            <p>Show real event names, shoot photos or brand/client proof here.</p>
+          </article>
+        </div>
+
+        <div class="grid-3" style="margin-top: 18px;">
+          <article class="card testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <h3>“Clean and cinematic edit.”</h3>
+            <p>Client testimonial placeholder. Add real client name and review later.</p>
+          </article>
+          <article class="card testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <h3>“Fast delivery and good quality.”</h3>
+            <p>Client testimonial placeholder. Replace with real feedback screenshot/text.</p>
+          </article>
+          <article class="card testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <h3>“Perfect for Instagram reels.”</h3>
+            <p>Client testimonial placeholder. Add real event/client proof here.</p>
+          </article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Want your event edited professionally?</strong>
+            <p class="text-muted">Message us and share the event type. We’ll guide you clearly.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20professional%20reel%20editing" target="_blank" rel="noopener">Book Shoot</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">FAQ</div>
+            <h2>Common questions.</h2>
+          </div>
+        </div>
+
+        <div class="faq-list reveal">
+          <details open>
+            <summary>Do you show pricing on the website?</summary>
+            <p>No. Package information is visible, but pricing is hidden. Final cost depends on shoot type, location, date, footage and editing requirements.</p>
+          </details>
+          <details>
+            <summary>Can you shoot and edit both?</summary>
+            <p>Yes. Shoot + edit is available based on requirement. You can also provide footage and request only editing.</p>
+          </details>
+          <details>
+            <summary>Which reel categories do you cover?</summary>
+            <p>Wedding, new car delivery, political, birthday, festival/event, jewellery/product, interior and cinematic videos.</p>
+          </details>
+          <details>
+            <summary>How do I book a shoot?</summary>
+            <p>Click any Book Shoot button or WhatsApp button and share date, location, shoot type and reference style.</p>
+          </details>
+          <details>
+            <summary>Can I add real videos later?</summary>
+            <p>Yes. Replace the placeholder work cards with your video links, thumbnails or uploaded MP4 files.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Book your shoot.</h2>
+          </div>
+          <p class="text-muted">Send your requirement, date, location and category. We’ll reply with the next step.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="card contact-card reveal">
+            <div class="icon">📞</div>
+            <h3>Contact Numbers</h3>
+            <div class="contact-line">
+              <a href="tel:+918767703834">8767703834</a>
+              <a href="tel:+918693862680">8693862680</a>
+              <a href="tel:+918888727991">8888727991</a>
+            </div>
+          </article>
+
+          <article class="card contact-card reveal">
+            <div class="icon">📲</div>
+            <h3>Social & Booking Links</h3>
+            <div class="contact-line">
+              <a href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener">WhatsApp Booking</a>
+              <a href="https://www.instagram.com/k_p_creativity_24?igsh=N2dnejNweHc0ZnNs" target="_blank" rel="noopener">Instagram: @k_p_creativity_24</a>
+              <span>Location Keywords: Mumbai, Navi Mumbai, Maharashtra, Local Events</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="book-cta reveal">
+          <div>
+            <strong>Final CTA: Book your shoot now.</strong>
+            <p class="text-muted">Share your event date, location and category on WhatsApp.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot.%20My%20category%20is%3A%20" target="_blank" rel="noopener">Book Shoot</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Reels Studio by k_p_creativity. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a class="float-btn instagram" href="https://www.instagram.com/k_p_creativity_24?igsh=N2dnejNweHc0ZnNs" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+    <a class="float-btn whatsapp" href="https://wa.me/918767703834?text=Hi%20Reels%20Studio%2C%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+  </div>
+
+  <script>
+    const loader = document.getElementById("loader");
+    window.addEventListener("load", () => {
+      setTimeout(() => loader.classList.add("hide"), 650);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    const categoryData = {
+      "Wedding Reels": [
+        "Halad Ceremony Reel",
+        "Wedding Highlight Reel",
+        "Chaul Ceremony Reel"
+      ],
+      "New Car Delivery Reels": [
+        "Car Delivery Reveal",
+        "Showroom Delivery Moment",
+        "Premium Car Cinematic Reel"
+      ],
+      "Political Reels": [
+        "Public Event Reel",
+        "Leader Intro Reel",
+        "Campaign Highlight Reel"
+      ],
+      "Birthday Reels": [
+        "Birthday Highlight Reel",
+        "Family Moment Reel",
+        "Party Cinematic Reel"
+      ],
+      "Festival/Event Reels": [
+        "Festival Highlight",
+        "Local Event Reel",
+        "Religious Program Reel"
+      ],
+      "Jewellery Videos": [
+        "Jewellery Product Showcase",
+        "Shop Promo Video",
+        "Close-up Product Reel"
+      ],
+      "Interior Videos": [
+        "Home Interior Walkthrough",
+        "Room Reveal Reel",
+        "Interior Cinematic Video"
+      ],
+      "Cinematic Videos": [
+        "Cinematic Intro",
+        "Mood Video",
+        "Premium Visual Story"
+      ]
+    };
+
+    const categoryDescriptions = {
+      "Wedding Reels": "Add your wedding reel thumbnails/videos in this section.",
+      "New Car Delivery Reels": "Add new car delivery reels and showroom delivery videos here.",
+      "Political Reels": "Add political campaign, public event and leader introduction reels here.",
+      "Birthday Reels": "Add birthday celebration edits and family event reels here.",
+      "Festival/Event Reels": "Add festival, local event and special occasion reels here.",
+      "Jewellery Videos": "Add jewellery product videos, brand videos and shop promos here.",
+      "Interior Videos": "Add home interior walkthroughs and room reveal videos here.",
+      "Cinematic Videos": "Add premium cinematic videos, mood edits and visual stories here."
+    };
+
+    const categoryCards = document.querySelectorAll(".category-card");
+    const categoryTitle = document.getElementById("categoryTitle");
+    const categoryDesc = document.getElementById("categoryDesc");
+    const workGrid = document.getElementById("workGrid");
+
+    function renderCategory(category) {
+      categoryTitle.textContent = category;
+      categoryDesc.textContent = categoryDescriptions[category];
+
+      workGrid.innerHTML = categoryData[category].map((item) => `
+        <article class="work-card">
+          <div class="work-thumb">Upcoming Work</div>
+          <div class="work-info">
+            <h3>${item}</h3>
+            <span>${category}</span>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    categoryCards.forEach(card => {
+      card.addEventListener("click", () => {
+        categoryCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        renderCategory(card.dataset.category);
+        document.getElementById("categoryView").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+
+    renderCategory("Wedding Reels");
+
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+  </script>
+</body>
+</html>
